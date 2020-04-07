@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+ <html lang="es">
+
+  <head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>TAREA API</title>
+    <link rel="stylesheet" href="estilo.css">
+  </head>
+
+  <body background="img/fondo1.jpg" bgcolor="#86B404">
+
+    <h1 class="text-center">FORMATO JSON</h1><br><br>
+
+    <div class="container">
+
+      <div class="row">
+        <button type="button" id="obtener" >
+          GET ALL <br> SEARCH GET
+        </button>
+      </div> 
+
+
+      <div class="row">
+        <button type="button" id="enviar">
+          POST INFO <br> SEARCH POST
+        </button>
+      </div>
+
+      <div class="row">
+        <button type="button" id="actualizar">
+          ACTUALIZAR INFO <br> SEARCH PUT
+        </button>
+      </div>
+
+      <div class="row">
+        <button type="button" id="modificar">
+          MODIFICACIÓN PARCIAL <br> SEARCH PATCH
+        </button>
+      </div>
+
+      <div class="row">
+        <button type="button" id="borrado">
+          BORRADO <br> SEARCH DELETE
+        </button>
+      </div> 
+      <div class="row" id="Div">
+        
+      </div>
+    </div>
+ 
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <!--GET-->
+    <script>
+  
+     $("#obtener").click(function(){
+    
+        $.ajax({
+          type: 'GET',
+          url: "https://jsonplaceholder.typicode.com/posts/",
+          contentType: "application/json",
+          dataType: 'json',
+          
+          success: function(get) {
+            $("#Div").text(JSON.stringify(get));
+            console.log(get);    
+          },
+          error: function (xhr, status) {
+    
+            console.log("Error");
+                          
+          }
+        });
+    
+      });
+    
+    </script>
+
+
+<script>
+  
+    $("#enviar").click(function(){
+   
+       $.ajax({
+         type: 'POST',
+         url: "https://jsonplaceholder.typicode.com/posts/",
+         contentType: "application/json",
+         dataType: 'json',
+         
+         success: function(post) {
+           $("#Div").text(JSON.stringify(post));
+           console.log(post);    
+         },
+         error: function (xhr, status) {
+   
+           console.log("Error");
+                         
+         }
+       });
+   
+     });
+   
+   </script>
+
+
+<script>
+  
+    $("#actualizar").click(function(){
+   
+       $.ajax({
+         type: 'PUT',
+         url: "https://jsonplaceholder.typicode.com/posts/1",
+         contentType: "application/json",
+         dataType: 'json',
+         
+         success: function(put) {
+           $("#Div").text(JSON.stringify(put));
+           console.log(put);    
+         },
+         error: function (xhr, status) {
+   
+           console.log("Error");
+                         
+         }
+       });
+   
+     });
+   
+   </script>
+
+
+<script>
+  
+    $("#modificar").click(function(){
+   
+       $.ajax({
+         type: 'PATCH',
+         url: "https://jsonplaceholder.typicode.com/posts/1",
+         contentType: "application/json",
+         dataType: 'json',
+         
+         success: function(patch) {
+           $("#Div").text(JSON.stringify(patch));
+           console.log(patch);    
+         },
+         error: function (xhr, status) {
+   
+           console.log("Error");
+                         
+         }
+       });
+   
+     });
+   
+   </script>
+
+
+<script>
+  
+    $("#borrado").click(function(){
+   
+       $.ajax({
+         type: 'DELETE',
+         url: "https://jsonplaceholder.typicode.com/posts/1",
+         contentType: "application/json",
+         dataType: 'json',
+         
+         success: function(vacio) {
+           $("#Div").text(JSON.stringify(vacio));
+           console.log(vacio);    
+         },
+         error: function (xhr, status) {
+   
+           console.log("Error");
+                         
+         }
+       });
+   
+     });
+   
+   </script>
+
+
+
+
+
+
+  </body>
+</html>
